@@ -4,7 +4,11 @@ const { check } = require("express-validator");
 
 const participantControllers = require("../controllers/participants");
 
-router.post("/", participantControllers.addParticipant);
+router.post(
+  "/",
+  [check("name").not().isEmpty(), check("email").normalizeEmail().isEmail()],
+  participantControllers.addParticipant
+);
 router.get("/", participantControllers.getMeetings);
 
 module.exports = router;

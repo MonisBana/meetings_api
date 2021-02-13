@@ -1,3 +1,4 @@
+//Error Wrapper
 class HttpError extends Error {
   constructor(message, errorCode) {
     super(message);

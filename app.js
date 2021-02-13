@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 app.use("/api/meetings", meetingsRoutes);
 app.use("/api/participants", participantsRoutes);
 
+//Route not found
 app.use((req, res, next) => {
   throw new HttpError("Could not find this route", 404);
 });
